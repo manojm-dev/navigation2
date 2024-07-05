@@ -3,13 +3,13 @@ name: Docker Image CI
 on:
   push:
     branches:
-    - main
+    - jazzy
     paths:
     - Dockerfile.dyno
     - .github/workflows/builder.yml
   pull_request:
     branches:
-    - main
+    - jazzy
     paths:
     - Dockerfile.dyno
     - .github/workflows/builder.yml
@@ -20,6 +20,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          ref: jazzy
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3
