@@ -63,5 +63,5 @@ jobs:
           cache-to: type=gha,mode=max
           push: true
           tags: |
-            ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.DOCKERHUB_REPONAME }}:jazzynavsrc(arm64)
+            ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.DOCKERHUB_REPONAME }}:jazzynavsrc-arm64
           platforms: linux/arm64
