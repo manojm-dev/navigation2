@@ -5,13 +5,13 @@ on:
     branches:
     - jazzy
     paths:
-    - Dockerfile.dyno
+    - Dockerfile
     - .github/workflows/builder.yml
   pull_request:
     branches:
     - jazzy
     paths:
-    - Dockerfile.dyno
+    - Dockerfiles
     - .github/workflows/builder.yml
 
 jobs:
