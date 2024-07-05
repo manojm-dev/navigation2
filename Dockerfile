@@ -6,7 +6,7 @@
 # docker build -t nav2:latest \
 #   --build-arg UNDERLAY_MIXINS \
 #   --build-arg OVERLAY_MIXINS ./
-ARG FROM_IMAGE=ros:rolling
+ARG FROM_IMAGE=ros:jazzy
 ARG UNDERLAY_WS=/opt/underlay_ws
 ARG OVERLAY_WS=/opt/overlay_ws
 
@@ -71,7 +71,7 @@ ARG UNDERLAY_WS
 ENV UNDERLAY_WS $UNDERLAY_WS
 WORKDIR $UNDERLAY_WS
 COPY --from=cacher /tmp/$UNDERLAY_WS ./
-RUN . /opt/ros/$ROS_DISTRO/setup.sh && \
+RUN . /opt/ros/jazzy/setup.sh && \
     apt-get update && rosdep install -q -y \
       --from-paths src \
       --skip-keys " \
@@ -84,7 +84,7 @@ RUN . /opt/ros/$ROS_DISTRO/setup.sh && \
 COPY --from=cacher $UNDERLAY_WS ./
 ARG UNDERLAY_MIXINS="release ccache lld"
 ARG CCACHE_DIR="$UNDERLAY_WS/.ccache"
-RUN . /opt/ros/$ROS_DISTRO/setup.sh 
+RUN . /opt/ros/jazzy/setup.sh 
 
 # install overlay dependencies
 ARG OVERLAY_WS
