@@ -92,8 +92,7 @@ ENV OVERLAY_WS $OVERLAY_WS
 WORKDIR $OVERLAY_WS
 COPY --from=cacher /tmp/$OVERLAY_WS ./
 
-RUN . $UNDERLAY_WS/install/setup.sh && \
-    apt-get update && rosdep install -q -y \
+RUN apt-get update && rosdep install -q -y \
       --from-paths src \
       --skip-keys " \
         slam_toolbox \
