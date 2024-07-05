@@ -105,7 +105,6 @@ RUN . $UNDERLAY_WS/install/setup.sh && \
 COPY --from=cacher $OVERLAY_WS ./
 ARG OVERLAY_MIXINS="release ccache lld"
 ARG CCACHE_DIR="$OVERLAY_WS/.ccache"
-RUN . $UNDERLAY_WS/install/setup.sh
 
 RUN apt install git -y
 
