@@ -104,10 +104,3 @@ RUN apt-get update && rosdep install -q -y \
 COPY --from=cacher $OVERLAY_WS ./
 ARG OVERLAY_MIXINS="release ccache lld"
 ARG CCACHE_DIR="$OVERLAY_WS/.ccache"
-
-RUN apt install git -y
-
-RUN mkdir -p /opt/slamtb_ws/src \
-    && cd /opt/slamtb_ws && git clone https://github.com/SteveMacenski/slam_toolbox.git src \
-    && rosdep install --from-path src --ignore-src -y \
-    && colcon build
